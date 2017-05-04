@@ -1,0 +1,39 @@
+.main-menu{
+	background: url("../img/ie/bg-main-menu.jpg") repeat;
+	background-position: 0 -2px;
+}
+
+#main-submit{
+	background: url("../img/ie/bg-search-button.jpg") repeat;
+}
+
+.arrow{
+	display: none !important;
+}
+
+#select-slide ul li.active{ 
+	background: url("../img/ie/bg-slide-button-active.jpg") repeat !important;
+}
+
+#quick-submit,
+#signup-submit{
+	background: url("../img/ie/bg-button.jpg") repeat;
+}
+
+.tab.active{
+	background: url("../img/ie/bg-active-tab.jpg") repeat;
+}
+
+select{
+	width: 120% !important;
+	margin-left: 0px !important;
+	border: none !important;
+}
+
+.select-block{
+	border: 1px solid #cfcdc5 !important;
+}
+
+.select-block:after{
+	right: 3px !important;
+}

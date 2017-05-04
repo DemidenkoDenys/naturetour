@@ -1,0 +1,883 @@
+@font-face {
+	font-family: "MyriadPro";
+	src: url("http://db.onlinewebfonts.com/t/a89cf050c859a23e4b6d9cf5989acf9e.eot");
+	src: local("MyriadPro"),
+		 url("http://db.onlinewebfonts.com/t/a89cf050c859a23e4b6d9cf5989acf9e.eot?#iefix") format("embedded-opentype"),
+		 url("http://db.onlinewebfonts.com/t/a89cf050c859a23e4b6d9cf5989acf9e.woff2") format("woff2"),
+		 url("http://db.onlinewebfonts.com/t/a89cf050c859a23e4b6d9cf5989acf9e.woff") format("woff"),
+		 url("http://db.onlinewebfonts.com/t/a89cf050c859a23e4b6d9cf5989acf9e.ttf") format("truetype"),
+		 url("http://db.onlinewebfonts.com/t/a89cf050c859a23e4b6d9cf5989acf9e.svg#Myriad Pro") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {font-family: "ZurichBT";
+	src: url("http://db.onlinewebfonts.com/t/e33744d64791eb2c543335a07f429816.eot");
+	src: local("ZurichBT"),
+		 url("http://db.onlinewebfonts.com/t/e33744d64791eb2c543335a07f429816.eot?#iefix") format("embedded-opentype"),
+		 url("http://db.onlinewebfonts.com/t/e33744d64791eb2c543335a07f429816.woff2") format("woff2"),
+		 url("http://db.onlinewebfonts.com/t/e33744d64791eb2c543335a07f429816.woff") format("woff"),
+		 url("http://db.onlinewebfonts.com/t/e33744d64791eb2c543335a07f429816.ttf") format("truetype"),
+		 url("http://db.onlinewebfonts.com/t/e33744d64791eb2c543335a07f429816.svg#Zurich Cn BT") format("svg");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "ZurichBT";
+	src: url("http://db.onlinewebfonts.com/t/ae31e53094d7c771e1ca71e3115c9963.eot");
+	src: local("ZurichBT"),
+		 url("http://db.onlinewebfonts.com/t/ae31e53094d7c771e1ca71e3115c9963.eot?#iefix") format("embedded-opentype"),
+		 url("http://db.onlinewebfonts.com/t/ae31e53094d7c771e1ca71e3115c9963.woff2") format("woff2"),
+		 url("http://db.onlinewebfonts.com/t/ae31e53094d7c771e1ca71e3115c9963.woff") format("woff"),
+		 url("http://db.onlinewebfonts.com/t/ae31e53094d7c771e1ca71e3115c9963.ttf") format("truetype"),
+		 url("http://db.onlinewebfonts.com/t/ae31e53094d7c771e1ca71e3115c9963.svg#Zurich Cn BT") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "KlavikaMedium";
+	src: url("http://db.onlinewebfonts.com/t/acac70fdb7ecef747e2185d85dbbbbfd.eot");
+	src: local('KlavikaMedium'),
+		 url("http://db.onlinewebfonts.com/t/acac70fdb7ecef747e2185d85dbbbbfd.eot?#iefix") format("embedded-opentype"),
+		 url("http://db.onlinewebfonts.com/t/acac70fdb7ecef747e2185d85dbbbbfd.woff2") format("woff2"),
+		 url("http://db.onlinewebfonts.com/t/acac70fdb7ecef747e2185d85dbbbbfd.woff") format("woff"),
+		 url("http://db.onlinewebfonts.com/t/acac70fdb7ecef747e2185d85dbbbbfd.ttf") format("truetype"),
+		 url("http://db.onlinewebfonts.com/t/acac70fdb7ecef747e2185d85dbbbbfd.svg#Klavika Medium") format("svg");
+}
+
+/* ПРИМЕСИ LESS */
+
+.border-radius(@radius){
+	-webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+			border-radius: @radius;
+}
+
+.gradient(@to, @fcolor, @scolor, @bgcolor: transparent){
+	background: -moz-linear-gradient(@to, @fcolor, @scolor), @bgcolor;
+	background: -webkit-linear-gradient(@to, @fcolor, @scolor), @bgcolor;
+	background: -o-linear-gradient(@to, @fcolor, @scolor), @bgcolor;
+	background: -ms-linear-gradient(@to, @fcolor, @scolor), @bgcolor;
+	background: linear-gradient(@to, @fcolor, @scolor), @bgcolor;
+}
+
+.main-white-font(@fs, @bold: normal, @up: normal){
+	font-family: ZurichBT;
+	font-weight: @bold;
+	font-size: @fs;
+	color: white;
+	text-transform: @up;
+	text-decoration: none;
+	text-shadow: 0px -2px rgba(0, 92, 19, .63);
+}
+
+.button-search-styling{
+	box-shadow: 0 0 0 4px #d8d5cc, inset #81de41 1px 1px 0 0px;
+	border: 1px solid #0c932f;
+	overflow: hidden;
+	.gradient(to top, #0f941a, #66c13e);
+	.border-radius(5px);
+}
+
+.input-search{
+	width: 100%;
+	height: 25px;
+	outline: none !important;
+	margin-bottom: 20px;
+	border: 1px solid #cfcdc5;
+	box-shadow: inset 0px 3px 5px 5px #ffffff, 0 0 0 4px #e8e5de, inset 0px -3px 6px 6px #e8e5de;
+	padding: 0 5px;
+	.border-radius(5px);
+}
+
+/* ОБЩИЕ СТИЛИ */
+
+*{
+	margin: 0;
+	padding: 0;
+	outline: none;
+}
+
+::-webkit-input-placeholder { color:#666666; font-size: 11px; font-family: Arial; line-height: 27px; }
+		 ::-moz-placeholder { color:#666666; font-size: 11px; font-family: Arial; line-height: 27px; } /* Firefox 19+ */
+		  :-moz-placeholder { color:#666666; font-size: 11px; font-family: Arial; line-height: 27px; } /* Firefox 18- */
+	 :-ms-input-placeholder { color:#666666; font-size: 11px; font-family: Arial; line-height: 27px; }
+			   .placeholder	{ color:#666666; font-size: 11px; font-family: Arial; line-height: 20px; }
+
+.container-fluid{
+	max-width: 990px !important;
+	position: relative;
+	overflow: hidden;
+	padding: 0 !important;
+}
+
+ul{ list-style: none; }
+
+ul li{ display: inline-block; }
+
+a:focus{ outline: none; }
+
+body{ background: url("../img/background.jpg"); }
+
+/* HEADER */
+
+header{
+	height: 150px;
+	max-height: 150px;
+
+/* логотип */
+
+	.logo{
+		padding: 0;
+		height: 100px;
+		a img{ margin: 20px 0 0 40px; }
+	}
+
+/* верхнее меню */
+
+	nav.contact-header{
+		ul{
+			list-style: none;
+			margin-top: 16px;
+			font-size: 0;
+
+			li{
+				display: inline-block;
+				margin-left: 13px;
+
+				a{
+					font-family: ZurichBT;
+					font-size: 13px;
+					color: #209a28;
+					text-transform: uppercase;
+					text-decoration: none;
+				}
+			}
+		}
+
+		>*{
+			width: 100%;
+			text-align: right;
+			margin: 0;
+		}
+
+		p{
+			color: #585755;
+			font-family: MyriadPro;
+		}
+
+		p:first-child{
+			font-size: 12px;
+			display: inline-block;
+			margin-top: 14px;
+		}
+
+		.phone{
+			font-size: 20px;
+			line-height: 20px;
+		}
+	}
+
+/* главное меню */
+
+	.main-menu{
+		border: 1px solid #0c932f;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 40px;
+
+		.gradient(to top, #0f941a, #66c13e);
+		.border-radius(5px);
+
+		#laptop-menu{
+			list-style: none;
+			padding: 0;
+
+			li{
+				display: inline-block;
+				margin-left: 10px;
+				margin-right: 44px;
+
+				a{
+					line-height: 40px;
+					.main-white-font(14px, bold, uppercase);
+				}
+			}
+
+			li:last-child{
+				margin-right: 0px;
+			}
+		}
+
+		#mobile-menu{
+			display: none;
+
+			a{
+				margin-top: 6px;
+				width: 25px;
+				height: 25px;
+				float: right;
+				background: url('../img/mobile-menu-button.png') no-repeat;
+			}
+		}
+
+		#mobile-menu a:hover{
+			background-position: 0 -25px;
+		}
+	}
+}
+
+/* название страницы */
+
+.destination{
+	height: 35px;
+		ul{
+			padding: 0 38px;
+			li{
+				color: #14961c;
+				line-height: 40px;
+				font-family: Arial;
+				font-size: 12px;
+			}
+		}
+	}
+
+/* ГЛАВНЫЙ БЛОК */
+
+main{
+	height: 965px;
+	border: 1px solid #fff;
+	position: relative;
+	box-shadow: 0 0 0 1px #e1dbce;
+
+	.border-radius(5px);
+
+	>*{ margin: 0; }
+
+	.main-section{
+		background-color: white;
+		padding-right: 18px;
+
+		.row{ margin: 18px 0 18px 0; }
+
+	/* слайдер */
+
+	.slider{
+		width: 100%;
+		height: 380px;
+		padding: 0;
+		position: relative;
+		overflow: hidden;
+
+		#slider-container{
+			.slide{ width: 100%; }
+			.slide:not(.active){ display: none; }
+
+			.slider-main-block{
+				height: 265px;
+				overflow: hidden;
+				position: relative;
+				.border-radius(10px);
+
+				img{
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					left: -1000px;
+				}
+
+				.description{
+					width: 235px;
+					min-width: 235px;
+					position: absolute;
+					right: -300px;
+					top: 0;
+					bottom: 0;
+					padding-left: 15px;
+					background: rgba(33, 26, 18, .9);
+
+					span{
+						display: inline-block;
+						font-size: 22px;
+						color: white;
+						margin-top: 15px;
+						margin-bottom: 5px;
+					}
+
+					h2{
+						font-size: 32px;
+						color: #28b028;
+						font-family: ZurichBT;
+						margin: 4px 0 15px 0;
+						line-height: 26px;
+						white-space: nowrap;
+					}
+
+					p{
+						font-family: Arial;
+						font-size: 12px;
+						color: white;
+						margin-left: 2px;
+						width: 95%;
+						height: 105px;
+						overflow: hidden;
+						line-height: 18px;
+
+						a{ color: #28b028; }
+					}
+				}
+			}
+
+			.slider-footer{
+				height: 120px;
+				min-height: 120px;
+				color: #444137;
+
+				h1{
+					font-size: 26px;
+					font-family: ZurichBT;
+					margin-top: 25px;
+					color: #444137;
+					width: 460px;
+					text-transform: uppercase;
+					position: relative;
+					left: -1000px;
+				}
+
+				.second-text{
+					font-size: 12px;
+					font-family: Arial;
+					width: 460px;
+					color: #595447;
+					line-height: 20px;
+					position: relative;
+					left: -1000px;
+
+					a{
+						font-weight: bold;
+						color: #28b028;
+						text-decoration: underline;
+					}
+				}
+
+				img{
+					position: absolute;
+					bottom: -205px;
+					right: 15px;
+				}
+			}
+		}
+
+		#select-slide{
+			position: absolute;
+			top: 215px;
+			z-index: 10;
+			color: white;
+
+			ul{
+
+				li{
+					width: 21px;
+					height: 20px;
+					background: #6b685e;
+					box-shadow: inset 1px -1px 0 0px #a6a190;
+					margin-right: 5px;
+					text-align: center;
+					line-height: 21px;
+					cursor: pointer;
+					font-family: Arial;
+					font-size: 12px;
+					font-weight: bold;
+
+					.border-radius(25px);
+				}
+
+				li.active{
+					width: 26px;
+					height: 25px;
+					box-shadow: none;
+					line-height: 25px;
+
+					.gradient(to top, #1a7912, #6ddd49);
+				}
+			}
+		}
+	}
+
+	/* меню туров */
+
+	.tabs{
+		height: 40px;
+		padding: 0 !important;
+		border: 1px solid #cfcdc5;
+		cursor: pointer;
+
+		.gradient(to top, #f4f3f1, white);
+		.border-radius(5px);
+
+		.tab{
+			text-align: center;
+			line-height: 38px;
+			font-size: 18px;
+			font-family: ZurichBT;
+			position: relative;
+			border-right: 1px solid #cfcdc5;
+
+			p{
+				display: inline;
+				margin: 0;
+				position: relative;
+			}
+		}
+
+		.tab:not(.active) p:before{
+			content: "";
+			position: absolute;
+			left: -12px;
+			top: 8px;
+			width: 6px;
+			margin: 0 auto;
+			border: 4px solid transparent;
+			border-left-color: #43ac2d;
+			border-left-width: 6px;
+			border-right: 0;
+		}
+
+		.tab:last-child{ border: none; }
+
+		.tab.active{
+			.main-white-font(18px);
+			.gradient(to top, #0f941a, #66c13e);
+		}
+
+		.tab.active:first-child{ .border-radius(5px 0 0 5px); }
+		.tab.active:last-child{ .border-radius(0 5px 5px 0); }
+
+		.tab.active:before{
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: -8px;
+			width: 6px;
+			margin: 0 auto;
+			border: 6px solid transparent;
+			border-top-color: #11951b;
+			border-top-width: 10px;
+			border-bottom: 0;
+		}
+	}
+
+	/* список туров */
+
+	.tours{
+		height: auto;
+		padding: 0 !important;
+		margin: 0 !important;
+		margin-top: 30px !important;
+		font-family: Arial;
+
+		h2{
+			font-size: 14px;
+			font-weight: bold;
+			font-family: Arial;
+			margin-top: 15px;
+			margin-bottom: 5px;
+		}
+
+		p{ 
+			font-size: 12px;
+			margin-right: 0px;
+			line-height: 18px;
+		}
+
+		article{
+			height: 245px;
+			overflow: hidden;
+			padding: 0;
+
+			picture{
+				display: block;
+				height: 95px;
+				width: 100%;
+				overflow: hidden;
+				position: relative;
+				.border-radius(5px);
+				margin-top: 4px;
+				box-shadow: 0 0 0 4px #d8d5cc;
+
+				img{
+					position: absolute;
+					top: 0; left: 0; bottom: 0; right: 0;
+					margin: auto;
+				}
+			}
+		}
+
+		article:nth-child(3n-2){ padding: 0 15px 0 4px; }
+		article:nth-child(3n-1){ padding-right: 13px; padding-left: 12px; }
+		article:nth-child(3n){ padding: 0 4px 0 20px; }
+	}
+}
+
+	/*боковая панель */
+
+	.main-aside{
+		position: relative;
+		overflow: hidden;
+		background-color: #f4f2ec;
+		padding: 0 !important;
+		margin: 0 !important;
+		border-left: 1px solid #f0ede5;
+
+		h2{
+			font-family: MyriadPro;
+			font-size: 14px;
+			color: #3f3b30;
+			line-height: 10px;
+			text-transform: uppercase;
+		}
+
+		p{
+			font-size: 12px;
+			color: #3f3b30;
+			font-family: Arial;
+			margin-bottom: 10px;
+		}
+
+		.aside-block{
+			border-bottom: 1px solid #f0ede5;
+			border-top: 1px solid #ffffff;
+			padding: 0 25px 0 20px;
+
+			.main-search{
+				position: relative;
+				margin-bottom: 30px;
+
+				.select-block{
+					height: 26px;
+					position: relative;
+					margin-top: 10px;
+					overflow: hidden;
+					.border-radius(5px);
+					margin-bottom: 17px;
+					vertical-align: top;
+				}
+
+				.select-block:after{
+					content: "";
+					width: 19px;
+					height: 20px;
+
+					position: absolute;
+					right: 0;
+					top: 3px;
+
+					background: url("../img/select-arrow.png") no-repeat;
+					.border-radius(5px);
+				}
+
+				.select-block.active:after{
+					background-position: 0 -20px;
+				}
+
+				select{
+					opacity: .9;
+					font-family: Arial;
+					font-size: 11px;
+					color: #999999;
+					height: 25px;
+					margin-left: 3px;
+					.input-search;
+
+					-webkit-appearance: none;
+					   -moz-appearance: none;
+						-ms-appearance: none;
+					        appearance: none;
+				}
+
+				select::-ms-expand{ display: none; }
+
+				.select-block.active select{
+					color: #231f20;
+				}
+
+				p{ color: #ede9df; }
+
+				.button-search{
+					position: relative;
+					padding-right: 15px;
+					margin-top: 20px;
+					margin-left: 5px;
+
+					#main-submit{
+						width: 100%;
+						height: 35px;
+						outline: none;
+						.button-search-styling;
+						.main-white-font(15px, bold, uppercase);
+						font-family: KlavikaMedium;
+						font-weight: normal;
+						text-align: left;
+						text-indent: 15px;
+					}
+
+					.arrow{
+						position: absolute;
+						top: 5px;
+						right: 6px;
+						outline: none;
+						display: block;
+						width: 26px;
+						height: 26px;
+						line-height: 0;
+						font-size: 0;
+						border-top: 1px solid #0c932f;
+						border-right: 1px solid #0c932f;
+						box-shadow: 3px -3px 0 0px #d8d5cc;
+
+						.border-radius(5px);
+						.gradient(to top left, #0f941a, #66c13e);
+						filter: progid:DXImageTransform.Microsoft.gradient(GradientType='0', StartColorStr='#66c13e', EndColorStr='#0f941a');
+
+						-webkit-transform: rotate(45deg);
+						   -moz-transform: rotate(45deg);
+							-ms-transform: rotate(45deg);
+							 -o-transform: rotate(45deg);
+						filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+					}
+				}
+
+				.button-search:after{
+					content: "";
+					background: url('../img/arrow-right.png') no-repeat;
+					position: absolute;
+					width: 20px;
+					height: 20px;
+					z-index: 20;
+					top: 10px;
+					right: 22px;
+				}
+			}
+
+			.quick-search{
+				.q-search-block{ padding-top: 2px; }
+				.q-search-block > *{ display: inline-block; }
+				input[type="text"]{
+					.input-search;
+					width: 59%;
+					height: 25px;
+					margin-left: 3px;
+				}
+
+				h2{ margin-top: -7px !important; }
+
+				#quick-submit{
+					height: 25px;
+					width: 65px;
+					float: right;
+					margin-right: 2px;
+
+					.button-search-styling;
+					.main-white-font(13px, normal, uppercase);
+					font-family: KlavikaMedium;
+					line-height: 24px;
+				}
+			}
+		}
+
+		.aside-block:first-child{ border-top: none; }
+		.aside-block:last-child{ border-bottom: none; }
+
+		.signup{
+			padding-top: 5px;
+			margin-right: 5px;
+			h2{ margin-bottom: 8px; }
+			input{ .input-search; }
+			input[type="mail"]{ margin: 9px 0px 15px 3px; }
+			input[type="text"]{ width: 58%; margin-left: 3px;}
+			input[type="submit"]{
+				width: 67px;
+				margin-right: -3px;
+				float: right;
+				.button-search-styling;
+				.main-white-font(13px, normal, uppercase);
+				font-family: KlavikaMedium;
+				line-height: 24px;
+			}
+		}
+
+		.latest{
+			h2{ margin: 24px 0 0 0; }
+			padding-bottom: 49px;
+			h3, .date, p{
+				font-family: Arial;
+				font-size: 12px;
+				font-weight: bold;
+			}
+
+			h3{ margin: 20px 0 0 0; }
+			p{ font-weight: normal; }
+
+		}
+	}
+}
+
+/* FOOTER */
+
+footer{
+	margin-top: 20px;
+	.border-radius(5px);
+	background: #f4f2ec;
+
+	h2{
+		font-family: KlavikaMedium;
+		font-size: 14px;
+		text-transform: uppercase;
+		font-weight: normal;
+		color: #64522a;
+		margin: 10px 0;
+	}
+
+	p, li a{ color: #757268; }
+
+	.row{
+		margin: 0;
+		padding-bottom: 15px;
+
+		> section{ 
+			height: auto;
+			padding: 0 20px !important;
+		}
+
+		.footer-header{
+			height: 44px;
+			margin-bottom: 10px;
+			text-align: center;
+			overflow: hidden;
+			.gradient(to top, rgba(0, 0, 0, .22), rgba(255, 255, 255, .22) 70%, #635543);
+			filter: progid:DXImageTransform.Microsoft.gradient(GradientType='0', StartColorStr='#999387', EndColorStr='#6f685e');
+
+			p{
+				color: white;
+				line-height: 43px;
+				font-family: Arial;
+				font-size: 16px;
+				font-style: italic;
+				width: 100%;
+			}
+		}
+
+		.follow{
+			padding: 0;
+			border-right: 1px solid #d8d6ce;
+			p{
+				font-family: Arial;
+				font-size: 12px;
+				margin-right: 20px;
+			}
+
+			#join-fb{
+				display: inline-block;
+				width: 195px;
+				height: 32px;
+				text-decoration: none;
+				padding: 0;
+				background: url("../img/join-fb-button.png") no-repeat;
+				-webkit-background-size: cover;
+				     -o-background-size: cover;
+				        background-size: cover;
+			}
+
+			#join-fb:hover{
+				background-position: 0 -32px;
+			}
+		}
+
+		.links{
+			border-right: 1px solid #d8d6ce;
+			padding-left: 30px !important;
+
+			ul{
+				-webkit-column-count: 3;
+				   -moz-column-count: 3;
+					-ms-column-count: 3;
+						column-count: 3;
+
+				-webkit-column-gap: 35px !important;
+				   -moz-column-gap: 35px !important;
+						column-gap: 35px !important;
+
+				li{
+					display: block;
+					a{ font-size: 12px; }
+				}
+			}
+		}
+
+		.contact{
+			padding-left: 20px !important;
+			p{
+				font-size: 12px;
+				line-height: 12px;
+			}
+		}
+	}
+}
+
+/* БЛОК ПОД ФУТЕРОМ */
+
+#copyright{
+	text-align: center;
+	margin-top: 15px;
+	height: 60px;
+
+	p{
+		font-family: Arial;
+		line-height: 18px;
+		font-size: 11px;
+		color: #716c61;
+		margin: 0;
+	}
+}
+
+/* МОБИЛЬНОЕ МЕНЮ */
+
+#modal{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	display: none;
+	overflow: hidden;
+	background: rgba(255, 255, 255, 0.8);
+	text-align: center;
+
+	ul{
+		display: inline-block;
+		width: 500px;
+		height: 300px;
+		top: 50px;
+		position: absolute;
+
+		li{
+			display: block;
+			margin-left: 20px;
+			margin-bottom: 30px;
+
+			a{
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 30px;
+				color: #3b401e;
+				font-weight: bold;
+			}
+		}
+		a.exit{ color: #fca4a4; }
+	}
+}
